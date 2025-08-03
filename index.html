@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <title>Basic Health Website</title>
+    <script>
+        function calculateBMI() {
+            var weight = parseFloat(document.getElementById("weight").value);
+            var height = parseFloat(document.getElementById("height").value) / 100;
+            var bmiOutput = document.getElementById("bmi-result");
+            if (!weight || !height) {
+                bmiOutput.innerText = "Enter both weight and height.";
+                return;
+            }
+            var bmi = weight / (height * height);
+            var category = "";
+            if (bmi < 18.5) category = "Underweight";
+            else if (bmi < 24.9) category = "Normal weight";
+            else if (bmi < 29.9) category = "Overweight";
+            else category = "Obesity";
+            bmiOutput.innerText = "Your BMI: " + bmi.toFixed(1) + " (" + category + ")";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Health & Wellness Hub</h1>
+        <h3>Your go-to simple guide for healthy living</h3>
+    </header>
+    <nav>
+        <a href="#bmi-calc">BMI Calculator</a> |
+        <a href="#survey">Your Health Survey</a> |
+        <a href="#nutrition">Nutrition</a> |
+        <a href="https://www.who.int/health-topics" target="_blank">WHO Health Topics</a>
+    </nav>
+    <section id="bmi-calc">
+        <h2>BMI Calculator</h2>
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Healthy Food">
+        <form>
+            <p>
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" min="1" max="300" step="any" required>
+            </p>
+            <p>
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" min="50" max="250" step="any" required>
+            </p>
+            <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+        </form>
+        <p id="bmi-result"></p>
+    </section>
+    <section id="survey">
+        <h2>Basic Health Survey</h2>
+        <form>
+            <p>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+            </p>
+            <p>
+                <label for="age">Age Group:</label>
+                <select id="age" name="age">
+                    <option value="under_18">Under 18</option>
+                    <option value="18-30">18-30</option>
+                    <option value="31-50">31-50</option>
+                    <option value="51plus">51 and above</option>
+                </select>
+            </p>
+            <p>
+                <span>Do you exercise regularly?</span><br>
+                <input type="radio" id="exercise_yes" name="exercise" value="yes">
+                <label for="exercise_yes">Yes</label>
+                <input type="radio" id="exercise_no" name="exercise" value="no">
+                <label for="exercise_no">No</label>
+            </p>
+            <p>
+                <input type="submit" value="Submit">
+            </p>
+        </form>
+    </section>
+    <article id="nutrition">
+        <h2>Nutrition Tips</h2>
+        <ul>
+            <li>Eat 5 servings of fruits and vegetables daily.</li>
+            <li>Switch to whole grains like brown rice, oats, or whole-wheat bread.</li>
+            <li>Drink at least 6-8 glasses of water a day.</li>
+            <li>Limit sugary snacks and processed foods.</li>
+        </ul>
+        <h3>Healthy Living Resources</h3>
+        <p>Visit the <a href="https://www.cdc.gov/healthyweight/assessing/bmi/index.html" target="_blank">CDC BMI Resources</a> for more info.</p>
+    </article>
+    <footer>
+        <p>&copy; 2025 Basic Health Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
